@@ -5,12 +5,12 @@ class Button {
   int y; // pos Y
   int w; // width
   int h; // height
-  String label;
-  boolean clicked;
-  boolean used;
+  String label; // text to display
+  boolean clicked; // state (graphical only)
+  boolean used; // state (test this one to fire events)
   color strokeColor;
   color fillColor;
-  
+
   // constructor
   Button(int x, int y, String label) {
     this.x = x;
@@ -21,9 +21,10 @@ class Button {
     this.clicked = false;
     this.strokeColor = color(255);
     this.fillColor = color(0);
-    this.used = true;
+    this.used = false;
   }
-
+  
+  // change color according to the state "clicked" or "not"
   void changeColor() {
     if (this.clicked) {
       this.fillColor = color(150);
@@ -31,19 +32,40 @@ class Button {
       this.fillColor = color(0);
     }
   }
-
-  void update() {
-    if ( this.x < mouseX && this.x + this.w > mouseX
-      && this.y < mouseY && this.y + this.h > mouseY && mousePressed && !this.clicked) {
-      this.clicked = true;
-      this.used = false;
-      this.changeColor();
-    } else if (!mousePressed) {
-      this.clicked = false;
-      this.changeColor();
+  
+  // test collision with pointer
+  boolean collide () {
+    if (this.x < mouseX && this.x + this.w > mouseX
+      && this.y < mouseY && this.y + this.h > mouseY) {
+        return true;
+    } else {
+      return false;
     }
   }
 
+  void update() {
+    // reset button before to check
+    if (this.used == true) this.used = false;
+    
+    if ( this.collide() && mousePressed && !this.clicked) {
+      // on click -> set clicked (graphical)
+      this.clicked = true;
+      
+    } else if ( this.collide() && !mousePressed && this.clicked && !this.used) {
+      // on mouseReleased if not already used -> activate here
+      this.used = true;
+      this.clicked = false;
+      
+    } else if (!this.collide() && !mousePressed && this.clicked && !this.used) {
+      // on mouseReleased if pointer does'nt collide -> cancel the click and do nothing
+      this.clicked = false;
+    }
+  
+    //reset the color
+    this.changeColor();
+  }
+  
+  // draw the button
   void render() {
     fill(this.fillColor);
     stroke(255);
