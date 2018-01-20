@@ -16,3 +16,9 @@ void draw() {
   b.render();
   input.render();
 }
+
+void keyReleased() {
+
+  input.update(key);
+
+}

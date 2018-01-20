@@ -30,7 +30,7 @@ class TextArea {
     text(this.content, this.x + 10, this.y + this.h);
   }
   
-  void update( String add ) {
+  void update( char add ) {
   
     this.content += add;
   
