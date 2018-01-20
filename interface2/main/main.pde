@@ -10,11 +10,15 @@ void setup() {
 }
 
 void draw() {
-  // some amazing code here
   background(200);
+  
   search.update();
   search.render();
   input.render();
+  
+  if (search.used) {
+    println("test");
+  }
 }
 
 void keyReleased() {
