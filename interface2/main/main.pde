@@ -9,5 +9,6 @@ void setup() {
 
 void draw() {
   // some amazing code here
+  b.update();
   b.render();
 }

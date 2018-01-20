@@ -25,7 +25,7 @@ class TextArea {
     fill(255);
     rect(this.x, this.y, this.w, this.h, 7);
     textSize(32);
-    fill('#4138A7');
+    //fill('#4138A7');
     text(this.content, x, y);
   
   }
