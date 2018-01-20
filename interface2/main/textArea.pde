@@ -11,7 +11,7 @@ class TextArea {
   boolean active = true;
   String content = "";
   
-  TextArea( int x, int y, int w, int h ) {
+  TextArea( int x, int y, int w, int h) {
     // Method who init the attributs of the TextArea
   
     this.x = x; this.y = y;
@@ -23,11 +23,11 @@ class TextArea {
   void render() {
   
     fill(255);
-    rect(this.x, this.y, this.w, this.h, 7);
-    textSize(32);
-    //fill('#4138A7');
-    text(this.content, x, y);
-  
+    rect(this.x, this.y, this.w, this.h + 5, 7);
+    textSize(this.h);
+    fill(#4138A7);
+    textAlign(BASELINE);
+    text(this.content, this.x + 10, this.y + this.h);
   }
   
   void update( String add ) {
