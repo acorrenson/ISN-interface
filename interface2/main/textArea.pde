@@ -31,8 +31,8 @@ class TextArea {
     text(this.content, this.x + 10, this.y + this.h);
   }
 
-  void update(char add) {
-
-    this.content += add;
+  void update(int add) {
+    if ( add == 8 && this.content.length() > 0 ) { this.content = this.content.substring(0, this.content.length() - 1); }
+    else if ( add != 8 ) { this.content += char(add); }
   }
 }
