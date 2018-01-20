@@ -47,9 +47,8 @@ class Button {
   void render() {
     fill(this.fillColor);
     stroke(255);
-    rect(this.x, this.y, this.w, this.h);
+    rect(this.x, this.y, this.w, this.h, 7);
     fill(255);
-    stroke(0);
     textSize(20);
     textAlign(CENTER, CENTER);
     text(this.label, this.x + this.w/2, this.y + this.h/2);
