@@ -17,7 +17,8 @@ void draw() {
   input.render();
   
   if (search.used) {
-    println("test");
+    println(input.content);
+    
   }
 }
 
