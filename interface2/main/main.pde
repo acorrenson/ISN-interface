@@ -22,5 +22,5 @@ void draw() {
 }
 
 void keyReleased() {
-  input.update(key);
+  input.update(keyCode);
 }
