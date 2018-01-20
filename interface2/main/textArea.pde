@@ -36,4 +36,8 @@ class TextArea {
     if ( add == 8 && this.content.length() > 0 ) { this.content = this.content.substring(0, this.content.length() - 1); }
     else if ( add != 8 ) { this.content += char(add); }
   }
+  
+  void clear() {
+    this.content = "";
+  }
 }
