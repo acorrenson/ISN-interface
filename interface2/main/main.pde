@@ -12,6 +12,7 @@ void setup() {
 void draw() {
   // some amazing code here
   background(200);
+  b.update();
   b.render();
   input.render();
 }

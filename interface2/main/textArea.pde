@@ -28,7 +28,6 @@ class TextArea {
     fill(#4138A7);
     textAlign(BASELINE);
     text(this.content, this.x + 10, this.y + this.h);
-  
   }
   
   void update( String add ) {
