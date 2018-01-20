@@ -7,9 +7,10 @@ class Button {
   int h; // height
   String label;
   boolean clicked;
+  boolean used;
   color strokeColor;
   color fillColor;
-
+  
   // constructor
   Button(int x, int y, String label) {
     this.x = x;
@@ -20,6 +21,7 @@ class Button {
     this.clicked = false;
     this.strokeColor = color(255);
     this.fillColor = color(0);
+    this.used = true;
   }
 
   void changeColor() {
@@ -34,8 +36,9 @@ class Button {
     if ( this.x < mouseX && this.x + this.w > mouseX
       && this.y < mouseY && this.y + this.h > mouseY && mousePressed && !this.clicked) {
       this.clicked = true;
+      this.used = false;
       this.changeColor();
-    } else if ( !mousePressed) {
+    } else if (!mousePressed) {
       this.clicked = false;
       this.changeColor();
     }
