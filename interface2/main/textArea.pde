@@ -12,13 +12,13 @@ class TextArea {
   String content = "";
 
   TextArea( int x, int y, int w, int h) {
-    // Method who init the attributs of the TextArea
+    // Method which init the attributs of the TextArea
 
     this.x = x; 
     this.y = y;
     this.w = w;  
     this.h = h;
-    this.max = 12;
+    this.max = 20;
     this.focus = false;
   }
   
@@ -68,9 +68,24 @@ class TextArea {
     if (this.focus) {
       if ( keyCode == 8 && this.content.length() > 0 ) { 
         this.content = this.content.substring(0, this.content.length() - 1);
-      } else if ( keyCode != 8 && this.content.length() < this.max) {
+      } else if ( keyCode != 8 && this.content.length() < this.max && this.keyCodeIsAllow(keyCode) ) {
         this.content += key;
       }
     }
+  }
+  
+  // check if keyCode input is allowed
+  boolean keyCodeIsAllow(int code) {
+  
+    for ( int i = 0; i < banKeycode.length; i ++) {
+      
+      if ( banKeycode[i] == code ) {
+        return false;
+      }
+    
+    }
+    
+    return true;
+    
   }
 }
